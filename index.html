@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الورود والقلوب</title>
+    <style>
+        /* CSS للتنسيق */
+        body {
+            /* تعيين الخلفية الوردية */
+            background-color: #ffc0cb; 
+            /* إضافة تأثير الورود باستخدام صورة خلفية متكررة */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="25" font-size="20" fill="%23f4a2ad">🌸</text><text x="60" y="70" font-size="20" fill="%23f4a2ad"></text><text x="35" y="90" font-size="20" fill="%23f4a2ad">🌷</text></svg>');
+            background-repeat: repeat;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            text-align: center;
+            position: relative; /* مهم لوضع الزر الجانبي */
+        }
+
+        /* --- تنسيق الزر الأساسي (دوسي هنا) --- */
+        .main-button {
+            background-color: #ff69b4; 
+            color: white;
+            border: none;
+            padding: 20px 40px; 
+            font-size: 30px; 
+            cursor: pointer;
+            border-radius: 15px; 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.5s, transform 0.1s;
+            font-weight: bold;
+        }
+
+        .main-button:hover {
+            background-color: #e55a9e;
+            transform: scale(1.05);
+        }
+
+        /* --- تنسيق الرسالة (بحبك) --- */
+        #message {
+            margin-top: 30px; 
+            font-size: 55px; 
+            color: #880e4f; /* لون توتي غامق */
+            font-weight: bold;
+            opacity: 0; 
+            transform: translateY(30px);
+            transition: opacity 0.7s, transform 0.7s;
+            pointer-events: none; /* لمنع الرسالة من حجب الزر الجانبي */
+        }
+
+        #message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- تنسيق الزر الجانبي (القلب) --- */
+        .side-button {
+            position: absolute;
+            top: 20px; /* المسافة من أعلى */
+            right: 20px; /* المسافة من اليمين */
+            background-color: transparent; /* خلفية شفافة */
+            color: #e91e63; /* لون قلب أحمر زاهي */
+            border: 3px solid #e91e63; /* إطار حول القلب */
+            border-radius: 50%; /* شكل دائري */
+            width: 70px;
+            height: 70px;
+            font-size: 35px;
+            line-height: 70px; /* لتوسيط القلب عمودياً */
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, opacity 0.5s;
+            display: none; /* إخفائه في البداية */
+        }
+        
+        .side-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <button id="mainBtn" class="main-button" onclick="showLove()">
+        دوسي هنا ي قموصتى😝
+    </button>
+
+    <div id="message">
+        بموت فيكى يا يمنتي ♥️😘
+    </div>
+
+    <button id="sideBtn" class="side-button" onclick="resetPage()">
+        ❤️
+    </button>
+
+    <script>
+        const mainBtn = document.getElementById('mainBtn');
+        const sideBtn = document.getElementById('sideBtn');
+        const messageElement = document.getElementById('message');
+
+        function showLove() {
+            // 1. إظهار رسالة الحب
+            messageElement.classList.add('show');
+            
+            // 2. إخفاء الزر الأساسي
+            mainBtn.style.opacity = '0';
+            mainBtn.style.pointerEvents = 'none'; // تعطيل الضغط
+
+            // 3. إظهار الزر الجانبي (القلب) بعد فترة قصيرة
+            setTimeout(() => {
+                sideBtn.style.display = 'block';
+                sideBtn.style.opacity = '1';
+            }, 500); // 0.5 ثانية
+        }
+
+        function resetPage() {
+            // 1. إخفاء الرسالة والزر الجانبي
+            messageElement.classList.remove('show');
+            sideBtn.style.opacity = '0';
+            sideBtn.style.display = 'none';
+
+            // 2. إظهار الزر الأساسي مرة أخرى
+            setTimeout(() => {
+                mainBtn.style.opacity = '1';
+                mainBtn.style.pointerEvents = 'auto'; // تفعيل الضغط
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
